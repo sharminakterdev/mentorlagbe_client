@@ -5,10 +5,10 @@ import { toast } from "sonner";
 import { Navbar } from "../components";
 import { useAuth } from "../lib/auth";
 
-export default function SignIn(){
- const router=useRouter();const {signIn}=useAuth();
- async function submit(e:React.FormEvent<HTMLFormElement>){
-  e.preventDefault();const form=new FormData(e.currentTarget);
+// export default function SignIn(){
+//  const router=useRouter();const {signIn}=useAuth();
+//  async function submit(e:React.FormEvent<HTMLFormElement>){
+//   e.preventDefault();const form=new FormData(e.currentTarget);
   try{
    const loggedIn=await signIn(String(form.get("email")),String(form.get("password")));
    toast.success("Signed in successfully");
