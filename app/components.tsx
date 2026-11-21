@@ -93,3 +93,88 @@ export function Navbar() {
   );
 }
 
+export function Footer() {
+  return (
+    <footer className="footer">
+      <div className="container">
+        <div className="footer-grid">
+          <div>
+            <Link className="brand" style={{ color: "white" }} href="/">
+              <span className="brand-mark">
+                <GraduationCap size={22} />
+              </span>
+              MentorLagbe
+            </Link>
+            <p style={{ color: "#bdcbd1", lineHeight: 1.7 }}>
+              Helping every student find the right tutor and every mentor grow.
+            </p>
+          </div>
+          <div>
+            <h4>Explore</h4>
+            <Link href="/tuitions">Browse Tuitions</Link>
+            <Link href="/pricing">Pro Plans</Link>
+            <Link href="/dashboard/student">Dashboard</Link>
+          </div>
+          <div>
+            <h4>Company</h4>
+            <Link href="/#how-it-works">How It Works</Link>
+            <Link href="/#subjects">Subjects</Link>
+            <Link href="/sign-up">Become a Tutor</Link>
+          </div>
+          <div>
+            <h4>Contact</h4>
+            <p>hello@mentorlagbe.com</p>
+            <p>+880 1700 000000</p>
+            <p>Dhaka, Bangladesh</p>
+          </div>
+        </div>
+        <div className="footer-bottom">
+          <span>© 2026 MentorLagbe. All rights reserved.</span>
+          <span>Facebook &nbsp; LinkedIn &nbsp; 𝕏</span>
+        </div>
+      </div>
+    </footer>
+  );
+}
+export type TuitionCardData = {
+  _id: string;
+  title: string;
+  subject: string;
+  classLevel: string;
+  mode: string;
+  monthlyFee: number;
+  tutorName: string;
+  bannerImage: string;
+};
+export function TuitionCard({ item }: { item: TuitionCardData }) {
+  return (
+    <article className="tuition-card">
+      <img className="card-image" src={item.bannerImage} alt={item.title} />
+      <div className="card-body">
+        <h3 className="card-title">{item.title}</h3>
+        <div className="card-meta">
+          <span className="tag">{item.subject}</span>
+          <span className="tag">{item.classLevel}</span>
+          <span className="tag">{item.mode}</span>
+        </div>
+        <p style={{ color: "#73808a", fontSize: 13 }}>by {item.tutorName}</p>
+        <div className="card-foot">
+          <span className="price">
+            ৳{item.monthlyFee.toLocaleString()}{" "}
+            <small style={{ color: "#7d898f", fontWeight: 500 }}>
+              {" "}
+              / month
+            </small>
+          </span>
+          <Link
+            className="btn btn-outline"
+            style={{ padding: "8px 12px", fontSize: 13 }}
+            href={`/tuitions/${item._id}`}
+          >
+            View <ArrowRight size={14} />
+          </Link>
+        </div>
+      </div>
+    </article>
+  );
+}
