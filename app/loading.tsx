@@ -1,0 +1,1 @@
+export default function Loading(){return <div style={{minHeight:"70vh",display:"grid",placeItems:"center"}}><div style={{width:44,height:44,border:"4px solid #dde5e3",borderTopColor:"#176b87",borderRadius:"50%",animation:"spin 1s linear infinite"}} /></div>}
